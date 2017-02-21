@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+
+			var lunch = {
+				sandwich: 'ham',
+				snack: 'chips',
+				drink: 'soda',
+				desert: 'cookie',
+				guests: 3,
+				alcohol: false,
+			};
+
+			/**
+			 * jQuery
+			 */
+
+			$.each(lunch, function( index, items ) {
+				console.log(index) // index
+				console.log(items) // value
+			});
+
+
+			/**
+			 * Vanilla JS
+			 */
+
+			for ( var item in lunch ) {
+				if ( Object.prototype.hasOwnProperty.call( lunch, item ) ) {
+					console.log( item ); // key
+					console.log( lunch[item] ); // value
+				}
+			}
+
+		</script>
+	</body>
+</html>

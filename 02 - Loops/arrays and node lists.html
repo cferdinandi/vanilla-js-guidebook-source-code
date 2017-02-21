@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+
+			var sandwiches = [
+				'tuna',
+				'ham',
+				'turkey',
+				'pb&j'
+			];
+
+			/**
+			 * jQuery
+			 */
+
+			$.each(sandwiches, function( index, sandwich ) {
+				console.log(index) // index
+				console.log(sandwich) // value
+			});
+
+
+			/**
+			 * Vanilla JS
+			 */
+
+			for ( var i = 0; i < sandwiches.length; i++ ) {
+				console.log(i) // index
+				console.log( sandwiches[i] ) // value
+			}
+
+			for ( var n = 0; n < sandwiches.length; n++ ) {
+
+				// Skip to the next in the loop
+				if ( sandwiches[n] === 'ham' ) continue;
+
+				// End the loop
+				if ( sandwiches[n] === 'turkey' ) break;
+
+				console.log( sandwiches[n] );
+
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.invisible-ink .hide-me {
+				border: 0;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				outline: 0;
+				padding: 0;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			.hide-me.active {
+				clip: auto;
+				height: auto;
+				margin: 0;
+				overflow: visible;
+				position: static;
+				white-space: normal;
+				width: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="hide-me" id="hide-me">
+			<p>Here's some content that I'd like to show or hide when the link is clicked. Let's also put <a href="#">a link</a> in here.</p>
+		</div>
+
+		<p>
+			<a class="click-me" href="#hide-me">
+				Click Me
+			</a>
+		</p>
+
+		<p>
+			<a class="click-me" href="#hide-me-2">
+				Click Me, Too
+			</a>
+		</p>
+
+		<div class="hide-me" id="hide-me-2">
+			<p>Here's some more content that I'd like to show or hide when the link is clicked.</p>
+		</div>
+
+
+		<!-- Scripts -->
+		<script>
+			;(function (window, document, undefined) {
+
+				'use strict';
+
+				// Feature test
+				var supports = 'querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_');
+				if ( !supports ) return;
+
+				// Add a class when the script loads
+				document.documentElement.classList.add( 'invisible-ink' );
+
+				// Listen for click events
+				document.addEventListener('click', function (event) {
+
+					// Make sure a .click-me link was clicked
+					if ( !event.target.classList.contains( 'click-me' ) ) return;
+
+					// Prevent default
+					event.preventDefault();
+
+					// Show or hide the content
+					var content = document.querySelector( event.target.hash );
+					if ( !content ) return;
+					content.classList.toggle( 'active' );
+
+					// If content is active, set focus
+					if ( content.classList.contains( 'active' ) ) {
+						content.focus();
+						if ( document.activeElement.id !== content.id ) {
+							content.setAttribute( 'tabindex', '-1' );
+							content.focus();
+						}
+					}
+
+				}, false);
+
+			})(window, document);
+		</script>
+	</body>
+</html>

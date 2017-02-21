@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+
+			var text = '  This sentence has some whitespace at the beginning and end of it.  ';
+
+			/**
+			 * jQuery
+			 */
+
+			var $trimmed = $.trim( text );
+
+
+			/**
+			 * Vanilla JS
+			 */
+
+			var trimmed = text.trim();
+
+		</script>
+	</body>
+</html>

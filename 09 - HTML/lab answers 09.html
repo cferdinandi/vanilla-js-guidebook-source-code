@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+
+			.bg-red,
+			.bg-blue,
+			.bg-navy {
+				color: #ffffff;
+			}
+
+			.bg-red {
+				background-color: #cb070e;
+			}
+
+			.bg-blue {
+				background-color: #0088cc;
+			}
+
+			.bg-navy {
+				background-color: #343d4d;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="bg-default" id="a" data-sandwich="tuna">.bg-default #1 [data-sandwich="tuna"]</div>
+
+		<div class="bg-navy" id="b" data-sandwich="turkey">.bg-navy #2 [data-sandwich="turkey"]</div>
+
+		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #3 [data-sandwich="turkey"]</div>
+
+		<div class="bg-blue" id="d" data-sandwich="ham">
+			.bg-blue #4 [data-sandwich="ham"]
+
+			<div class="bg-navy" id="d1" data-snack="chips">.bg-navy #4a [data-snack="chips"]</div>
+
+			<div class="bg-navy" id="d2" data-snack="carrots">.bg-navy #4b [data-snack="carrots"]</div>
+
+			<div class="bg-red" id="d3" data-snack="chips">.bg-red #4c [data-snack="chips"]</div>
+		</div>
+
+		<div class="bg-red" id="e" data-sandwich="tuna">.bg-red #5 [data-sandwich="tuna"]</div>
+
+		<div class="bg-red" id="f" data-sandwich="ham">.bg-red #6 [data-sandwich="ham"]</div>
+
+		<div class="bg-blue" id="g" data-sandwich="ham">.bg-blue #7 [data-sandwich="ham"]</div>
+
+		<div class="bg-navy" id="h" data-sandwich="turkey">.bg-navy #8 [data-sandwich="turkey"]</div>
+
+		<div class="bg-blue" id="i" data-sandwich="tuna">.bg-blue #9 [data-sandwich="tuna"]</div>
+
+
+		<!-- Scripts -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			// 1. Get the first element with an attribute of [data-snack] equal to "chips".
+			var elem = document.querySelector( '[data-snack="chips"]' );
+
+			// 2. Add to the existing HTML with a short note about chips.
+			elem.innerHTML = 'My favorite brand of potato chip is Cape Cod.';
+		</script>
+	</body>
+</html>

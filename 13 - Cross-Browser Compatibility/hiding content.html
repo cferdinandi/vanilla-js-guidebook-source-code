@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+
+			.js-accordion .collapse {
+				display: none;
+			}
+
+			.collapse.active {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="collapse">
+			This content gets hidden after JavaScript loads. Presumably, some script would then help make it visible again.
+		</div>
+
+		<!-- Scripts -->
+		<script>
+			// Check for browser capabilities
+			// This test separates ES5 browsers from everyone else
+			var supports = 'querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_');
+
+			if ( supports ) {
+				document.documentElement.className += ' js-accordion';
+				// Codes goes here...
+			}
+		</script>
+	</body>
+</html>

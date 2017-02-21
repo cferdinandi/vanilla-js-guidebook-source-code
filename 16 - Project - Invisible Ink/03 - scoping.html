@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ditching jQuery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.hide-me {
+				display: none;
+			}
+
+			.hide-me.active {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<a class="click-me" href="#hide-me">
+				Click Me
+			</a>
+		</p>
+
+		<div class="hide-me" id="hide-me">
+			<p>Here's some content that I'd like to show or hide when the link is clicked.</p>
+		</div>
+
+		<p>
+			<a class="click-me" href="#hide-me-2">
+				Click Me, Too
+			</a>
+		</p>
+
+		<div class="hide-me" id="hide-me-2">
+			<p>Here's some more content that I'd like to show or hide when the link is clicked.</p>
+		</div>
+
+
+		<!-- Scripts -->
+		<script>
+			;(function (window, document, undefined) {
+
+				'use strict';
+
+				// Listen for click events
+				document.addEventListener('click', function (event) {
+
+					// Make sure a .click-me link was clicked
+					if ( !event.target.classList.contains( 'click-me' ) ) return;
+
+					// Prevent default
+					event.preventDefault();
+
+					// Show or hide the content
+					var content = document.querySelector( event.target.hash );
+					if ( !content ) return;
+					content.classList.toggle( 'active' );
+
+				}, false);
+
+			})(window, document);
+		</script>
+	</body>
+</html>
