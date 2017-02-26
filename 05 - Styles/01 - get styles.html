@@ -45,7 +45,7 @@
 
 		<div class="bg-navy" id="a" data-sandwich="tuna">.bg-navy #1 [data-sandwich="tuna"]</div>
 
-		<div class="bg-navy" id="b" data-sandwich="turkey">.bg-navy #2 [data-sandwich="turkey"]</div>
+		<div class="bg-navy" id="b" data-sandwich="turkey" style="font-weight: bold; font-style: italic;">.bg-navy #2 [data-sandwich="turkey"]</div>
 
 		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #3 [data-sandwich="turkey"]</div>
 
@@ -78,24 +78,20 @@
 			 */
 
 			var $elem = $( '#a' );
-			$elem.css( 'background-color', '#000000' );
-			console.log( $elem );
+			console.log( $elem.css( 'background-color' ) );
 
 
 			/**
 			 * Vanilla JS
 			 */
 
-			// Using the CSS property directly
+			// Get the CSS property directly (for inline CSS)
 			// Available properties: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
-			var elem = document.querySelector( '#b' );
-			elem.style.backgroundColor = '#000000';
-			console.log( elem );
+			var elem = document.querySelector( '#a' );
+			console.log( elem.style.backgroundColor );
 
-			// Using .cssText (can add multiple styles at once)
-			var elem2 = document.querySelector( '#c' );
-			elem2.style.cssText += ' background-color: #f7f7f7; color: #272727;';
-			console.log( elem2 );
+			// Get the computed styles
+			console.log( window.getComputedStyle( elem ).backgroundColor );
 
 		</script>
 	</body>

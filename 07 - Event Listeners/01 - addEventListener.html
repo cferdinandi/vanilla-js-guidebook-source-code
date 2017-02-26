@@ -73,7 +73,9 @@
 			 * Vanilla JS
 			 */
 
-			window.addEventListener('click', function ( event ) {
+			// A reference of available events can be found at https://developer.mozilla.org/en-US/docs/Web/Events
+			var btn = document.querySelector( '#click-me' );
+			btn.addEventListener('click', function ( event ) {
 				console.log( event );
 				var div = document.querySelector( '#a' );
 				div.classList.add( 'bg-blue' );

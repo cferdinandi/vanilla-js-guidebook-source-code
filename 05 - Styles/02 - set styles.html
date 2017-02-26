@@ -45,7 +45,7 @@
 
 		<div class="bg-navy" id="a" data-sandwich="tuna">.bg-navy #1 [data-sandwich="tuna"]</div>
 
-		<div class="bg-navy" id="b" data-sandwich="turkey" style="font-weight: bold; font-style: italic;">.bg-navy #2 [data-sandwich="turkey"]</div>
+		<div class="bg-navy" id="b" data-sandwich="turkey">.bg-navy #2 [data-sandwich="turkey"]</div>
 
 		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #3 [data-sandwich="turkey"]</div>
 
@@ -78,28 +78,19 @@
 			 */
 
 			var $elem = $( '#a' );
-			console.log( $elem.css( 'background-color' ) );
+			$elem.css( 'background-color', '#000000' );
+			console.log( $elem );
 
 
 			/**
 			 * Vanilla JS
 			 */
 
-			// Get the CSS property directly (for inline CSS)
+			// Set an inline style on an element
 			// Available properties: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
-			var elem = document.querySelector( '#a' );
-			console.log( elem.style.backgroundColor );
-
-			// Get the computed styles
-			console.log( window.getComputedStyle( elem ).backgroundColor );
-
-			// Convert a string into an integer
-			console.log( window.getComputedStyle( elem ).width );
-			console.log( parseInt( window.getComputedStyle( elem ).width, 10 ) );
-
-			// Get all inline styles
-			var elem2 = document.querySelector( '#b' );
-			console.log( elem2.style.cssText );
+			var elem = document.querySelector( '#b' );
+			elem.style.backgroundColor = '#000000';
+			console.log( elem );
 
 		</script>
 	</body>
