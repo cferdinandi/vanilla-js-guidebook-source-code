@@ -23,7 +23,8 @@
 
 			.bg-red,
 			.bg-blue,
-			.bg-navy {
+			.bg-navy,
+			.bg-green {
 				color: #ffffff;
 			}
 
@@ -37,6 +38,10 @@
 
 			.bg-navy {
 				background-color: #343d4d;
+			}
+
+			.bg-green {
+				background-color: #22853c;
 			}
 		</style>
 	</head>
@@ -73,44 +78,22 @@
 		<!-- Scripts -->
 		<script src="../jquery-3.1.1.min.js"></script>
 		<script>
-			/**
-			 * jQuery
-			 */
-
-			// All divs
-			var $elems = $( 'div' );
-			console.log( $elems );
-
-			// The first div
-			var $firstElem = $elems[0];
-			console.log( $firstElem );
-
 
 			/**
 			 * Vanilla JS
 			 */
 
-			// The first div
+			// Get all of the classes on an element
 			var elem = document.querySelector( 'div' );
-			console.log( elem );
+			console.log( elem.className );
 
-			// The first div with the .bg-red class
-			var elemRed = document.querySelector( '.bg-red' );
-			console.log( elemRed );
+			// Add a class to an element
+			elem.className += ' vanilla-js';
+			console.log( elem.className );
 
-			// The first div with a data attribute of snack equal to carrots
-			var elemCarrots = document.querySelector( '[data-snack="carrots"]' );
-			console.log( elemCarrots );
-
-			// An element that doesn't exist
-			var elemNone = document.querySelector( '.bg-orange' );
-			console.log( elemNone );
-
-			// Verify element exists before doing anything with it
-			if ( elemNone ) {
-				// Do something...
-				console.log( 'Not found!' );
-			}
+			// Replace all classes on an element
+			elem.className = 'new-class';
+			console.log( elem.className );
 
 		</script>
 	</body>
