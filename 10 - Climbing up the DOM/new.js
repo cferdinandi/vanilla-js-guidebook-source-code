@@ -1,1 +1,0 @@
-var closest = $elem.closest( '[data-sandwich]' );
