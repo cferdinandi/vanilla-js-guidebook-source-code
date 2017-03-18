@@ -44,8 +44,8 @@
 			};
 
 			forEach(sandwiches, function (sandwich, index) {
-				console.log( sandwich );
-				console.log( index );
+				console.log(index); // index
+				console.log(sandwich); // value
 			});
 
 			forEach(lunch, function (item, key) {
@@ -54,8 +54,9 @@
 				// No way to terminate the loop
 				if ( item === 'soda' ) return;
 
-				console.log( item );
-				console.log( key );
+				console.log(key); // key
+				console.log(item); // value
+
 			});
 
 		</script>

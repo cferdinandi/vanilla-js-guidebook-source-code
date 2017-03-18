@@ -64,11 +64,11 @@
 			var $button = $( '.click-me' );
 			var $div = $( '#a' );
 
-			// // Listen for our event
-			// $button.on( 'click', function( event ) {
-			// 	console.log( event );
-			// 	$div.toggleClass( 'bg-blue' );
-			// });
+			// Listen for our event
+			$button.on( 'click', function( event ) {
+				console.log( event );
+				$div.toggleClass( 'bg-blue' );
+			});
 
 
 			/**
@@ -79,12 +79,12 @@
 			var div = document.querySelector( '#a' );
 
 			// Listen for clicks on the entire window
-			window.addEventListener('click', function ( event ) {
-				console.log( event.target );
-				if ( event.target.classList.contains( 'click-me' ) ) {
-					div.classList.toggle( 'bg-blue' );
-				}
-			}, false);
+			// window.addEventListener('click', function ( event ) {
+			// 	console.log( event.target );
+			// 	if ( event.target.classList.contains( 'click-me' ) ) {
+			// 		div.classList.toggle( 'bg-blue' );
+			// 	}
+			// }, false);
 
 
 		</script>
