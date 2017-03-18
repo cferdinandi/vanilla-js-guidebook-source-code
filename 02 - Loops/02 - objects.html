@@ -27,8 +27,8 @@
 			 */
 
 			$.each(lunch, function( key, item ) {
-				console.log( key ) // key
-				console.log( item ) // item
+				console.log(key); // key
+				console.log(item); // value
 			});
 
 
@@ -36,10 +36,10 @@
 			 * Vanilla JS
 			 */
 
-			for ( var item in lunch ) {
-				if ( Object.prototype.hasOwnProperty.call( lunch, item ) ) {
-					console.log( item ); // key
-					console.log( lunch[item] ); // value
+			for ( var key in lunch ) {
+				if ( Object.prototype.hasOwnProperty.call( lunch, key ) ) {
+					console.log(key); // key
+					console.log(lunch[key]); // value
 				}
 			}
 

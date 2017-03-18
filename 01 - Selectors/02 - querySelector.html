@@ -77,22 +77,39 @@
 			 * jQuery
 			 */
 
-			// Get all elements with the .bg-red class
-			var $elems = $( '.bg-red' );
+			// All divs
+			var $elems = $( 'div' );
 			console.log( $elems );
+
+			// The first div
+			var $firstElem = $elems[0];
+			console.log($firstElem);
 
 
 			/**
 			 * Vanilla JS
 			 */
 
-			// Get all elements with the .bg-red class
-			var elemsRed = document.querySelectorAll( '.bg-red' );
-			console.log( elemsRed );
+			// The first div
+			var elem = document.querySelector( 'div' );
+			console.log(elem);
 
-			// Get all elements with the [data-snack] attribute
-			var elemsSnacks = document.querySelectorAll( '[data-snack]' );
-			console.log( elemsSnacks );
+			// The first div with the .bg-red class
+			var elemRed = document.querySelector( '.bg-red' );
+			console.log(elemRed);
+
+			// The first div with a data attribute of snack equal to carrots
+			var elemCarrots = document.querySelector( '[data-snack="carrots"]' );
+			console.log(elemCarrots);
+
+			// An element that doesn't exist
+			var elemNone = document.querySelector( '.bg-orange' );
+			console.log(elemNone);
+
+			// Verify element exists before doing anything with it
+			if ( elemNone ) {
+				// Do something...
+			}
 
 		</script>
 	</body>

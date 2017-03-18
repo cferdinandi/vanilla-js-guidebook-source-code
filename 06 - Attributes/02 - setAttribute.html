@@ -80,30 +80,28 @@
 			$elem = $( '#a' );
 
 			// Set the [data-sandwich] attribute value
-			$elem.data( 'sandwich', 'ham' );
-			console.log( $elem );
+			$elem.attr( 'data-sandwich', 'ham' );
 
 			// Set attributes like ID, title, and so on
 			$elem.attr( 'title', 'Ham Sandwich!' );
-			console.log( $elem );
 
 
 			/**
 			 * Vanilla JS
 			 */
 
-			var elem = document.querySelector( '#a' );
+			var elem = document.querySelector( '#b' );
 
 			// Set the [data-sandwich] attribute value
-			elem.setAttribute( 'data-sandwich', 'turkey' );
-			console.log( elem );
+			elem.setAttribute( 'data-sandwich', 'tuna' );
 
 			// Set attributes like ID, title, and so on
 			// This can be done with setAttribute(), but is better done using the attribute directly
 			// HTML attribute reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-			elem.setAttribute( 'title', 'Nope, turkey!' );
-			elem.tabIndex = '-1';
-			console.log( elem );
+			elem.setAttribute( 'title', 'Nope, tuna!' );
+			elem.title = 'Definitely tuna!';
+			// elem.tabIndex = '-1';
+			elem.setAttribute('tabIndex', '-1');
 
 		</script>
 	</body>
