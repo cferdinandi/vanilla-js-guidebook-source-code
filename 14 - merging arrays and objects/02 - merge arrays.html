@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Objects | The Vanilla JS Guidebook</title>
+		<title>Merge two or more arrays | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -24,21 +24,13 @@
 
 		<!-- Scripts -->
 		<script>
-			var lunch = {
-				sandwich: 'ham',
-				snack: 'chips',
-				drink: 'soda',
-				desert: 'cookie',
-				guests: 3,
-				alcohol: false,
-			};
+			var sandwiches1 = ['turkey', 'tuna', 'blt'];
+			var sandwiches2 = ['chicken', 'pb&j'];
 
-			for ( var key in lunch ) {
-				if ( Object.prototype.hasOwnProperty.call( lunch, key ) ) {
-					console.log(key); // key
-					console.log(lunch[key]); // value
-				}
-			}
+			Array.prototype.push.apply(sandwiches1, sandwiches2);
+
+			console.log(sandwiches1);
+			console.log(sandwiches2);
 		</script>
 	</body>
 </html>

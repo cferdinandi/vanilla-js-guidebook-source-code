@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>getSiblings() | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<ul>
+			<li id="item-1">Item 1</li>
+			<li id="item-2">Item 2</li>
+			<li id="item-3">Item 3</li>
+			<li id="item-4">Item 4</li>
+			<li id="item-5">Item 5</li>
+			<li id="item-6">Item 6</li>
+			<li id="item-7">Item 7</li>
+		</ul>
+
+
+		<!-- Scripts -->
+		<script>
+			/**
+			 * Get all siblings of an element
+			 * @param  {Node}  elem The element
+			 * @return {Array}      The siblings
+			 */
+			var getSiblings = function ( elem ) {
+			    var siblings = [];
+			    var sibling = elem.parentNode.firstChild;
+			    for ( ; sibling; sibling = sibling.nextSibling ) {
+			        if ( sibling.nodeType === 1 && sibling !== elem ) {
+			            siblings.push( sibling );
+			        }
+			    }
+			    return siblings;
+			};
+
+			// Example
+			var elem = document.querySelector( '#item-3' );
+			var siblings = getSiblings( elem );
+
+			console.log(elem);
+			console.log(siblings);
+		</script>
+	</body>
+</html>

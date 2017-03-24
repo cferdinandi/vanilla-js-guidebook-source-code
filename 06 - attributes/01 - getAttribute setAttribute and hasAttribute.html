@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>DOM Ready | The Vanilla JS Guidebook</title>
+		<title>getAttribute(), setAttribute(), and hasAttribute() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -39,38 +39,6 @@
 				background-color: #343d4d;
 			}
 		</style>
-
-
-		<!-- Scripts -->
-		<script>
-			 // Get divs with a [data-snack] attribute of chips
-			console.log( document.querySelectorAll( 'div' ) );
-
-			// Run event after DOM is ready
-			// @param  {Function} fn Callback function
-			var ready = function ( fn ) {
-
-				// Sanity check
-				if ( typeof fn !== 'function' ) return;
-
-				// If document is already loaded, run method
-				if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
-					return fn();
-				}
-
-				// Otherwise, wait until document is loaded
-				document.addEventListener( 'DOMContentLoaded', fn, false );
-
-			};
-
-			// Example
-			ready(function() {
-				// Get divs with a [data-snack] attribute of chips,
-				// now that the DOM is loaded
-				console.log( document.querySelectorAll( 'div' ) );
-			});
-
-		</script>
 	</head>
 
 	<body>
@@ -81,5 +49,27 @@
 
 		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #c [data-sandwich="turkey"]</div>
 
+
+		<!-- Scripts -->
+		<script>
+			var elem = document.querySelector( '#a' );
+
+			// Get the value of an attribute
+			var sandwich = elem.getAttribute( 'data-sandwich' );
+			console.log(sandwich);
+
+			// Set an attribute value
+			elem.setAttribute( 'data-drink', 'soda' );
+			console.log(elem);
+
+			// Check if an element has an attribute
+			if ( elem.hasAttribute( 'data-sandwich' ) ) {
+				console.log('We have a sandwich!');
+			}
+
+			if ( !elem.hasAttribute( 'data-dessert' ) ) {
+				console.log('There is no dessert. Booo! =(');
+			}
+		</script>
 	</body>
 </html>

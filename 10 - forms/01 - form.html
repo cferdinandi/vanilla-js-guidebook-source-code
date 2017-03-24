@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>forms | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<form>
+			<div>
+				<label for="input-1">Input 1</label>
+				<input type="text" id="input-1">
+			</div>
+		</form>
+
+		<form>
+			<div>
+				<label for="input-2">Input 2</label>
+				<input type="text" id="input-2">
+			</div>
+		</form>
+
+		<!-- Scripts -->
+		<script>
+			var forms = document.forms;
+			console.log(forms);
+		</script>
+	</body>
+</html>

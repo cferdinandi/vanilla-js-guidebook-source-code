@@ -3,34 +3,32 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Ditching jQuery</title>
+		<title>trim() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
 	</head>
 
 	<body>
 
-		<!-- Scripts -->
-		<script src="../jquery-3.1.1.min.js"></script>
-		<script>
+		<p>Hello, world!</p>
 
+
+		<!-- Scripts -->
+		<script>
 			var text = '  This sentence has some whitespace at the beginning and end of it.  ';
 			console.log(text);
 
-			/**
-			 * jQuery
-			 */
-
-			var $trimmed = $.trim( text );
-			console.log($trimmed);
-
-
-			/**
-			 * Vanilla JS
-			 */
-
 			var trimmed = text.trim();
 			console.log(trimmed);
-
 		</script>
 	</body>
 </html>

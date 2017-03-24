@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Form Attributes | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<form>
+			<div>
+				<label for="input-1">Input 1</label>
+				<input type="text" name="input-1" id="input-1">
+			</div>
+
+			<div>
+				<label for="input-2">Input 2</label>
+				<input type="text" name="input-2" id="input-2">
+			</div>
+
+			<div>
+				<label>
+					<input type="checkbox" name="checkbox" id="checkbox" value="I agree to the terms of service">
+					Checkbox
+				</label>
+			</div>
+
+			<div>
+				<label>
+					<input type="radio" name="radiogroup" id="radio-1" value="Radio 1">
+					Radio 1
+				</label>
+				<br>
+				<label>
+					<input type="radio" name="radiogroup" id="radio-2" value="Radio 2" checked>
+					Radio 2
+				</label>
+				<br>
+				<label>
+					<input type="radio" name="radiogroup" id="radio-3" value="Radio 3">
+					Radio 3
+				</label>
+			</div>
+
+			<div>
+				<label for="textarea">Textarea</label>
+				<textarea name="textarea" id="textarea"></textarea>
+			</div>
+		</form>
+
+
+		<!-- Scripts -->
+		<script>
+			var input = document.querySelector( '#input-1' );
+
+			// Get type
+			var type = input.type
+			console.log(type);
+
+			// Set type
+			input.type = 'email';
+			console.log(input);
+
+			// Set the name
+			var checkbox = document.querySelector( '#checkbox' );
+			var name = checkbox.name;
+			console.log(checkbox.name);
+
+			// Get the value
+			var radio = document.querySelector( '[name="radiogroup"]:checked' );
+			var value = radio.value;
+			console.log(value);
+
+			// Set the value
+			var textarea = document.querySelector( '#textarea' );
+			textarea.value = 'Hello world!';
+		</script>
+	</body>
+</html>

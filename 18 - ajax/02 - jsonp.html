@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>JSONP | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			/**
+			 * Get JSONP data
+			 * @param  {String}   url      The JSON URL
+			 * @param  {Function} callback The function to run after JSONP data loaded
+			 */
+			var getJSONP = function ( url, callback ) {
+
+				// Create script with url and callback (if specified)
+				var ref = window.document.getElementsByTagName( 'script' )[ 0 ];
+				var script = window.document.createElement( 'script' );
+				script.src = url + (url.indexOf( '?' ) + 1 ? '&' : '?') + 'callback=' + callback;
+
+				// Insert script tag into the DOM (append to <head>)
+				ref.parentNode.insertBefore( script, ref );
+
+				// After the script is loaded (and executed), remove it
+				script.onload = function () {
+					this.remove();
+				};
+
+			};
+
+			// Example
+			var logAPI = function ( data ) {
+				console.log( data );
+			}
+
+			getJSONP( 'http://jsfiddle.net/echo/jsonp/?text=something&par1=another&par2=one-more', 'logAPI' );
+		</script>
+	</body>
+</html>

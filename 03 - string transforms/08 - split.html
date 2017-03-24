@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Objects | The Vanilla JS Guidebook</title>
+		<title>split() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -24,21 +24,14 @@
 
 		<!-- Scripts -->
 		<script>
-			var lunch = {
-				sandwich: 'ham',
-				snack: 'chips',
-				drink: 'soda',
-				desert: 'cookie',
-				guests: 3,
-				alcohol: false,
-			};
+			var shoppingList = 'Soda, turkey sandwiches, potato chips, chocolate chip cookies';
+			console.log(shoppingList);
 
-			for ( var key in lunch ) {
-				if ( Object.prototype.hasOwnProperty.call( lunch, key ) ) {
-					console.log(key); // key
-					console.log(lunch[key]); // value
-				}
-			}
+			var menu = shoppingList.split( ', ' );
+			console.log(menu);
+
+			var limitedMenu = shoppingList.split( ', ', 2 );
+			console.log(limitedMenu);
 		</script>
 	</body>
 </html>

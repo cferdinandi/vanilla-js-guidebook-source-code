@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title> | The Vanilla JS Guidebook</title>
+		<title>parentNode | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -72,7 +72,13 @@
 
 		<!-- Scripts -->
 		<script>
+			var elem = document.querySelector( '#d3' );
 
+			var parent = elem.parentNode;
+			console.log(parent);
+
+			var oneUpParent = elem.parentNode.parentNode;
+			console.log(oneUpParent);
 		</script>
 	</body>
 </html>

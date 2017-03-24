@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Ditching jQuery</title>
+		<title>addEventListener() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -14,73 +14,25 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
-
-			div {
-				background-color: #f7f7f7;
-				margin: 0 0 1em;
-				padding: 0.5em 1em;
-			}
-
-			.bg-red,
-			.bg-blue,
-			.bg-navy {
-				color: #ffffff;
-			}
-
-			.bg-red {
-				background-color: #cb070e;
-			}
-
-			.bg-blue {
-				background-color: #0088cc;
-			}
-
-			.bg-navy {
-				background-color: #343d4d;
-			}
 		</style>
 	</head>
 
 	<body>
 
-		<div class="bg-red" id="a" data-sandwich="tuna">.bg-red #1 [data-sandwich="tuna"]</div>
-
 		<p>
-			<button id="click-me">Click Me</button>
+			<button class="click-me" id="click-me-1">Click Me</button>
 		</p>
 
 
 		<!-- Scripts -->
-		<script src="../jquery-3.1.1.min.js"></script>
 		<script>
-			/**
-			 * jQuery
-			 */
-
-			var $elem = $( '#click-me' );
-
-			// $elem.on( 'click', function( event ) {
-			// 	console.log( 'clicked' );
-			// 	$( '#a' ).addClass( 'bg-blue' );
-			// });
-
-			// $elem.click(function( event ) {
-			// 	console.log( 'also clicked' );
-			// });
-
-
-			/**
-			 * Vanilla JS
-			 */
-
-			// A reference of available events can be found at https://developer.mozilla.org/en-US/docs/Web/Events
-			var btn = document.querySelector( '#click-me' );
+			// Listen for clicks on an element
+			var btn = document.querySelector( '#click-me-1' );
 			btn.addEventListener('click', function ( event ) {
-				console.log( event );
-				var div = document.querySelector( '#a' );
-				div.classList.add( 'bg-blue' );
+				console.log('The button was clicked!');
+				console.log(event); // The event details
+				console.log(event.target); // The clicked element
 			}, false);
-
 		</script>
 	</body>
 </html>

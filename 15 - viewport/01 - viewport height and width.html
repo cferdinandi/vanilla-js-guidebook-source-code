@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Event Debouncing | The Vanilla JS Guidebook</title>
+		<title>Viewport Height and Width | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -26,27 +26,13 @@
 
 		<!-- Scripts -->
 		<script>
-			// Setup a timer
-			var timeout;
+			// Viewport height
+			var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			console.log(viewportHeight);
 
-			// Listen for resize events
-			window.addEventListener('scroll', function ( event ) {
-				console.log( 'not debounced' );
-
-				// If timer is null, reset it to 66ms and run your functions.
-				// Otherwise, wait until timer is cleared
-				if ( !timeout ) {
-					timeout = setTimeout(function() {
-
-						// Reset timeout
-						timeout = null;
-
-						// Run our scroll functions
-						console.log( 'debounced' );
-
-					}, 66);
-				}
-			}, false);
+			// Viewport width
+			var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+			console.log(viewportWidth);
 		</script>
 	</body>
 </html>

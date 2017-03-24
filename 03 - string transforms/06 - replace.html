@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Objects | The Vanilla JS Guidebook</title>
+		<title>replace() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -24,21 +24,17 @@
 
 		<!-- Scripts -->
 		<script>
-			var lunch = {
-				sandwich: 'ham',
-				snack: 'chips',
-				drink: 'soda',
-				desert: 'cookie',
-				guests: 3,
-				alcohol: false,
-			};
+			var chips = 'I love Cape Cod potato chips!';
+			console.log(chips);
 
-			for ( var key in lunch ) {
-				if ( Object.prototype.hasOwnProperty.call( lunch, key ) ) {
-					console.log(key); // key
-					console.log(lunch[key]); // value
-				}
-			}
+			var lays = chips.replace( 'Cape Cod', 'Lays' );
+			console.log(lays);
+
+			var soda = chips.replace( 'Cape Cod potato chips', 'soda' );
+			console.log(soda);
+
+			var extend = chips.replace( 'Cape Cod', 'Cape Cod salt and vinegar' );
+			console.log(extend);
 		</script>
 	</body>
 </html>

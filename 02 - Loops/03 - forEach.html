@@ -3,31 +3,27 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Ditching jQuery</title>
+		<title>forEach() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
 	</head>
 
 	<body>
 
+		<p>Hello, world!</p>
+
+
 		<!-- Scripts -->
 		<script>
-
-			var sandwiches = [
-				'tuna',
-				'ham',
-				'turkey',
-				'pb&j'
-			];
-
-			var lunch = {
-				sandwich: 'ham',
-				snack: 'chips',
-				drink: 'soda',
-				desert: 'cookie',
-				guests: 3,
-				alcohol: false,
-			};
-
 			/*! foreach.js v1.1.0 | (c) 2014 @toddmotto | https://github.com/toddmotto/foreach */
 			var forEach = function (collection, callback, scope) {
 				if (Object.prototype.toString.call(collection) === '[object Object]') {
@@ -43,11 +39,13 @@
 				}
 			};
 
+			// Log each sandwich
 			forEach(sandwiches, function (sandwich, index) {
 				console.log(index); // index
 				console.log(sandwich); // value
 			});
 
+			// Log each lunch item, skipping soda
 			forEach(lunch, function (item, key) {
 
 				// Skips to the next item.
@@ -58,7 +56,6 @@
 				console.log(item); // value
 
 			});
-
 		</script>
 	</body>
 </html>

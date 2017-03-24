@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>The Mustard Test | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// Check for browser capabilities
+			// This test separates ES5 browsers from everyone else
+			// IE9 is excluded because of the classList condition.
+			// You can it if you include the polyfill for further backwards compatibility
+			// https://github.com/eligrey/classList.js/
+			var supports = 'querySelector' in document && 'addEventListener' in window && 'classList' in document.createElement('_');
+
+			if ( supports ) {
+				console.log('Your browser has the right support!');
+			} else {
+				console.log('Your browser is not supported... =(');
+			}
+
+			// or if in a function...
+			var someFunction = function () {
+				if ( !supports ) return;
+				console.log('We can run our function');
+			};
+
+			someFunction();
+
+		</script>
+	</body>
+</html>

@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Ditching jQuery</title>
+		<title>querySelectorAll() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -43,57 +43,42 @@
 
 	<body>
 
-		<div class="bg-navy" id="a" data-sandwich="tuna">.bg-navy #1 [data-sandwich="tuna"]</div>
+		<div class="bg-navy" id="a" data-sandwich="tuna">.bg-navy #a [data-sandwich="tuna"]</div>
 
-		<div class="bg-navy" id="b" data-sandwich="turkey">.bg-navy #2 [data-sandwich="turkey"]</div>
+		<div class="bg-navy" id="b" data-sandwich="turkey">.bg-navy #b [data-sandwich="turkey"]</div>
 
-		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #3 [data-sandwich="turkey"]</div>
+		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #c [data-sandwich="turkey"]</div>
 
 		<div class="bg-blue" id="d" data-sandwich="ham">
 			.bg-blue #4 [data-sandwich="ham"]
 
-			<div class="bg-navy" id="d1" data-snack="chips">.bg-navy #4a [data-snack="chips"]</div>
+			<div class="bg-navy" id="d1" data-snack="chips">.bg-navy #d1 [data-snack="chips"]</div>
 
-			<div class="bg-navy" id="d2" data-snack="carrots">.bg-navy #4b [data-snack="carrots"]</div>
+			<div class="bg-navy" id="d2" data-snack="carrots">.bg-navy #d2 [data-snack="carrots"]</div>
 
-			<div class="bg-red" id="d3" data-snack="chips">.bg-red #4c [data-snack="chips"]</div>
+			<div class="bg-red" id="d3" data-snack="chips">.bg-red #d3 [data-snack="chips"]</div>
 		</div>
 
-		<div class="bg-red" id="e" data-sandwich="tuna">.bg-red #5 [data-sandwich="tuna"]</div>
+		<div class="bg-red" id="e" data-sandwich="tuna">.bg-red #e [data-sandwich="tuna"]</div>
 
-		<div class="bg-red" id="f" data-sandwich="ham">.bg-red #6 [data-sandwich="ham"]</div>
+		<div class="bg-red" id="f" data-sandwich="ham">.bg-red #f [data-sandwich="ham"]</div>
 
-		<div class="bg-blue" id="g" data-sandwich="ham">.bg-blue #7 [data-sandwich="ham"]</div>
+		<div class="bg-blue" id="g" data-sandwich="ham">.bg-blue #g [data-sandwich="ham"]</div>
 
-		<div class="bg-navy" id="h" data-sandwich="turkey">.bg-navy #8 [data-sandwich="turkey"]</div>
+		<div class="bg-navy" id="h" data-sandwich="turkey">.bg-navy #h [data-sandwich="turkey"]</div>
 
-		<div class="bg-blue" id="i" data-sandwich="tuna">.bg-blue #9 [data-sandwich="tuna"]</div>
+		<div class="bg-blue" id="i" data-sandwich="tuna">.bg-blue #i [data-sandwich="tuna"]</div>
 
 
 		<!-- Scripts -->
-		<script src="../jquery-3.1.1.min.js"></script>
 		<script>
-			/**
-			 * jQuery
-			 */
-
-			// Get all elements with the .bg-red class
-			var $elems = $( '.bg-red' );
-			console.log($elems);
-
-
-			/**
-			 * Vanilla JS
-			 */
-
 			// Get all elements with the .bg-red class
 			var elemsRed = document.querySelectorAll( '.bg-red' );
 			console.log(elemsRed);
 
 			// Get all elements with the [data-snack] attribute
-			var elemsSnacks = document.querySelectorAll( '[data-snack="carrots"]' );
+			var elemsSnacks = document.querySelectorAll( '[data-snack]' );
 			console.log(elemsSnacks);
-
 		</script>
 	</body>
 </html>

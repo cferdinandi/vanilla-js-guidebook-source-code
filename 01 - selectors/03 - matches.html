@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title> | The Vanilla JS Guidebook</title>
+		<title>matches() | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -72,7 +72,39 @@
 
 		<!-- Scripts -->
 		<script>
+			// Polyfill
+			if (!Element.prototype.matches) {
+				Element.prototype.matches =
+					Element.prototype.matchesSelector ||
+					Element.prototype.mozMatchesSelector ||
+					Element.prototype.msMatchesSelector ||
+					Element.prototype.oMatchesSelector ||
+					Element.prototype.webkitMatchesSelector ||
+					function(s) {
+						var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+							i = matches.length;
+						while (--i >= 0 && matches.item(i) !== this) {}
+						return i > -1;
+					};
+			}
 
+			// Get our elements
+			var elemRed = document.querySelector( '.bg-red' );
+			var elemCarrots = document.querySelector( '[data-snack="carrots"]' );
+
+			// Check for a turkey sandwich
+			if ( elemRed.matches( '[data-sandwich="turkey"]' ) ) {
+				console.log( 'turkey sandwich!' );
+			} else {
+				console.log( 'Something else, ick... =(' );
+			}
+
+			// Check for a red background
+			if ( elemCarrots.matches( '.bg-red' ) ) {
+				console.log( 'Red background, woohoo!' );
+			} else {
+				console.log( 'Nope, not red... =(' );
+			}
 		</script>
 	</body>
 </html>

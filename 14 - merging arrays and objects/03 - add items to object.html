@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Add items to an object | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!-- Styles -->
+			<style type="text/css">
+				body {
+					max-width: 40em;
+					width: 88%;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			</style>
+		</head>
+
+		<body>
+
+			<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			var lunch = {
+				sandwich: 'turkey',
+				chips: 'cape cod',
+				drink: 'soda'
+			}
+
+			// Add items to the object
+			lunch.alcohol = false;
+			lunch["dessert"] = 'cookies';
+
+			console.log(lunch);
+		</script>
+	</body>
+</html>

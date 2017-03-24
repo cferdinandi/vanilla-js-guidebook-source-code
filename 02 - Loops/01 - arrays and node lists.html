@@ -3,16 +3,27 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Ditching jQuery</title>
+		<title>Arrays and Node Lists | The Vanilla JS Guidebook</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
 	</head>
 
 	<body>
 
-		<!-- Scripts -->
-		<script src="../jquery-3.1.1.min.js"></script>
-		<script>
+		<p>Hello, world!</p>
 
+
+		<!-- Scripts -->
+		<script>
 			var sandwiches = [
 				'tuna',
 				'ham',
@@ -20,27 +31,14 @@
 				'pb&j'
 			];
 
-			/**
-			 * jQuery
-			 */
-
-			$.each(sandwiches, function( index, sandwich ) {
-				console.log(index) // index
-				console.log(sandwich) // value
-			});
-
-
-			/**
-			 * Vanilla JS
-			 */
-
+			// Log each sandwich
 			for ( var i = 0; i < sandwiches.length; i++ ) {
 				console.log(i) // index
 				console.log( sandwiches[i] ) // value
 			}
 
+			// Log each sandwich, skipping ham and ending with turkey
 			for ( var n = 0; n < sandwiches.length; n++ ) {
-
 				// Skip to the next in the loop
 				if ( sandwiches[n] === 'ham' ) continue;
 
@@ -48,9 +46,7 @@
 				if ( sandwiches[n] === 'turkey' ) break;
 
 				console.log( sandwiches[n] );
-
 			}
-
 		</script>
 	</body>
 </html>

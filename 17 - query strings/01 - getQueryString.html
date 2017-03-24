@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>getQueryString() | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			/**
+			 * Get the value of a query string from a URL
+			 * @param  {String} field The field to get the value of
+			 * @param  {String} url   The URL to get the value from [optional]
+			 * @return {String}       The value
+			 */
+			var getQueryString = function ( field, url ) {
+			    var href = url ? url : window.location.href;
+			    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+			    var string = reg.exec(href);
+			    return string ? string[1] : null;
+			};
+
+			// Get query string values
+			var url = 'http://example.com?sandwich=turkey&snack=cookies';
+
+			var sandwich = getQueryString( 'sandwich', url );
+			console.log(sandwich);
+
+			var snack = getQueryString( 'snack', url );
+			console.log(snack);
+
+			var dessert = getQueryString( 'dessert', url );
+			console.log(dessert);
+		</script>
+	</body>
+</html>
