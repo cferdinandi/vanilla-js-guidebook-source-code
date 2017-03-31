@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Cookies | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// NOTE: Google Chrome does not store cookies on localhost. For this exercise, use Firefox, Safari, or MS Edge.
+
+			// Set a cookie
+			document.cookie = 'sandwich=turkey; expires=Fri, 31 Dec 2024 23:59:59 GMT';
+			console.log(document.cookie);
+
+			// Get a cookie
+			var getCookie = function (name) {
+				var value = "; " + document.cookie;
+				var parts = value.split("; " + name + "=");
+				if (parts.length == 2) return parts.pop().split(";").shift();
+			};
+			var sandwich = getCookie('sandwich');
+			console.log(sandwich);
+
+			// Complex cookie work
+			/*\
+			|*|
+			|*|  :: cookies.js ::
+			|*|
+			|*|  A complete cookies reader/writer framework with full unicode support.
+			|*|
+			|*|  Revision #1 - September 4, 2014
+			|*|
+			|*|  https://developer.mozilla.org/en-US/docs/Web/API/document.cookie
+			|*|  https://developer.mozilla.org/User:fusionchess
+			|*|  https://github.com/madmurphy/cookies.js
+			|*|
+			|*|  This framework is released under the GNU Public License, version 3 or later.
+			|*|  http://www.gnu.org/licenses/gpl-3.0-standalone.html
+			|*|
+			|*|  Syntaxes:
+			|*|
+			|*|  * docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])
+			|*|  * docCookies.getItem(name)
+			|*|  * docCookies.removeItem(name[, path[, domain]])
+			|*|  * docCookies.hasItem(name)
+			|*|  * docCookies.keys()
+			|*|
+			\*/
+
+			var docCookies = {
+			  getItem: function (sKey) {
+			    if (!sKey) { return null; }
+			    return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+			  },
+			  setItem: function (sKey, sValue, vEnd, sPath, sDomain, bSecure) {
+			    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+			    var sExpires = "";
+			    if (vEnd) {
+			      switch (vEnd.constructor) {
+			        case Number:
+			          sExpires = vEnd === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + vEnd;
+			          break;
+			        case String:
+			          sExpires = "; expires=" + vEnd;
+			          break;
+			        case Date:
+			          sExpires = "; expires=" + vEnd.toUTCString();
+			          break;
+			      }
+			    }
+			    document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "");
+			    return true;
+			  },
+			  removeItem: function (sKey, sPath, sDomain) {
+			    if (!this.hasItem(sKey)) { return false; }
+			    document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+			    return true;
+			  },
+			  hasItem: function (sKey) {
+			    if (!sKey) { return false; }
+			    return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+			  },
+			  keys: function () {
+			    var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+			    for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]); }
+			    return aKeys;
+			  }
+			};
+
+			// Set a cookie
+			docCookies.setItem( 'sandwich', 'turkey with tomato and mayo', new Date(2020, 5, 12) );
+
+			// Get a cookie
+			var cookieVal = docCookies.getItem('sandwich');
+			console.log(cookieVal);
+
+			// Remove a coookie
+			docCookies.removeItem( 'sandwich' );
+			console.log( docCookies.getItem('sandwich') );
+		</script>
+	</body>
+</html>

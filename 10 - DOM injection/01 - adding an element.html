@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Adding an element to the DOM | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+
+
+			.bg-red,
+			.bg-blue,
+			.bg-navy {
+				color: #ffffff;
+			}
+
+			.bg-red {
+				background-color: #cb070e;
+			}
+
+			.bg-blue {
+				background-color: #0088cc;
+			}
+
+			.bg-navy {
+				background-color: #343d4d;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div><p>Hello, world!</p></div>
+
+		<!-- Scripts -->
+		<script>
+			// Get the element you want to add your new element before or after
+			var target = document.querySelector( 'div' );
+
+			// Create the new element
+			// This can be any valid HTML element: p, article, span, etc...
+			var div1 = document.createElement( 'div' );
+			var div2 = document.createElement( 'div' );
+
+			// Add content to the new element
+			div1.innerHTML = 'Where am I?';
+			div2.innerHTML = 'Cheers, mate!';
+
+			// You could also add classes, IDs, and so on
+			// div is a fully manipulatable DOM Node
+			div1.classList.add( 'bg-navy' );
+			div2.classList.add( 'bg-red' );
+
+			// Insert the element before our target element
+			// The first argument is our new element.
+			// The second argument is our target element.
+			target.parentNode.insertBefore( div1, target );
+
+			// Insert the element after our target element
+			// Instead of passing in the target, you pass in target.nextSibling
+			target.parentNode.insertBefore( div2, target.nextSibling );
+		</script>
+	</body>
+</html>

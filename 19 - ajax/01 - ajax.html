@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ajax/HTTP | The Vanilla JS Guidebook</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// Set up our HTTP request
+			var xhr = new XMLHttpRequest();
+
+			// Setup our listener to process compeleted requests
+			xhr.onreadystatechange = function () {
+				// Only run if the request is complete
+				if ( xhr.readyState !== 4 ) return;
+
+				// Process our return data
+				if ( xhr.status === 200 ) {
+					// What do when the request is successful
+					console.log( xhr );
+				} else {
+					// What do when the request fails
+					console.log('The request failed!');
+				}
+
+				// Code that should run regardless of the request status
+				console.log('This always runs...');
+			};
+
+			// Create and send a GET request
+			// The first argument is the post type
+			// The second argument is the endpoint URL
+			xhr.open( 'GET', 'https://jsonplaceholder.typicode.com/posts' );
+			xhr.send();
+		</script>
+	</body>
+</html>
